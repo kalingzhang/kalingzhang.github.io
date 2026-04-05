@@ -48,11 +48,11 @@
     .filter-btn.active, .filter-btn:hover { border-color: #df6e8e; color: #df6e8e; }
 
     /* GRID */
-    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-    .project-card { border-right: 1px solid #222; border-bottom: 1px solid #222; position: relative; overflow: hidden; }
-    .project-card:nth-child(3n) { border-right: none; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #222; }
+    .project-card { position: relative; overflow: hidden; background: #0a0a0a; }
+    
     .project-card a { display: block; position: relative; text-decoration: none; }
-    .project-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; filter: grayscale(15%); transition: transform 0.4s ease, filter 0.4s ease; }
+    .project-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; display: block; filter: grayscale(15%); transition: transform 0.4s ease, filter 0.4s ease; }
     .project-card:hover .project-img { transform: scale(1.04); filter: grayscale(0%); }
     .project-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.2rem 1.2rem; background: linear-gradient(to top, rgba(10,10,10,0.97) 0%, transparent 100%); }
     .project-discipline { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #df6e8e; margin-bottom: 0.35rem; }
