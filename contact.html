@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaling Zhang — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&family=Outfit:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; color: #f0ede6; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 1px solid #222; position: sticky; top: 0; background: #0a0a0a; z-index: 100; }
+    .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.01em; color: #f0ede6; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #f0ede6; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #888; }
+    .nav-drawer { display: none; flex-direction: column; background: #0a0a0a; border-bottom: 1px solid #222; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #888; text-decoration: none; padding: 1rem 1.5rem; border-bottom: 1px solid #1a1a1a; }
+
+    /* MAIN */
+    .contact-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 2.5rem;
+      max-width: 800px;
+    }
+
+    .contact-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #df6e8e;
+      margin-bottom: 1.5rem;
+    }
+    .contact-heading { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.9; color: #f0ede6; margin-bottom: 2rem; }
+    .contact-heading span { color: #df6e8e; }
+    .contact-intro {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #999;
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 3rem;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid #222;
+    }
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #222;
+      text-decoration: none;
+      transition: padding-left 0.2s;
+    }
+    .contact-item:hover { padding-left: 0.5rem; }
+    .contact-item-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #555;
+    }
+    .contact-item-value { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.6rem; letter-spacing: 0.01em; color: #f0ede6; transition: color 0.2s; }
+    .contact-item:hover .contact-item-value { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.6rem; letter-spacing: 0.01em; color: #f0ede6; transition: color 0.2s; }
+    .contact-item-arrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: #444;
+      transition: color 0.2s;
+    }
+    .contact-item:hover .contact-item-arrow { color: #df6e8e; }
+
+    /* non-link item (phone — not a link) */
+    .contact-item-static {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #222;
+    }
+    .contact-item-static .contact-item-value { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.6rem; color: #f0ede6; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .contact-main { padding: 4rem 1.5rem; }
+      .contact-item-value { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.6rem; letter-spacing: 0.01em; color: #f0ede6; transition: color 0.2s; }
+      .contact-item-static .contact-item-value { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.6rem; color: #f0ede6; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Kaling Zhang</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.pdf" target="_blank">Resume</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="document.getElementById('navDrawer').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="resume.pdf" target="_blank">Resume</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="contact-main">
+    <div class="contact-eyebrow">Contact</div>
+    <div class="contact-heading">Let's make<br>something <span>good.</span></div>
+    <p class="contact-intro">
+      Whether you're looking for a collaborator or just want to pick each other's brain — I'd love to hear from you.
+    </p>
+
+    <div class="contact-items">
+      <a class="contact-item" href="mailto:kalingzhang@gmail.com">
+        <span class="contact-item-label">Email</span>
+        <span class="contact-item-value">kalingzhang@gmail.com</span>
+        <span class="contact-item-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

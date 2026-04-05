@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaling Zhang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&family=Outfit:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; color: #f0ede6; overflow-x: hidden; }
+
+    /* NAV */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 1px solid #222; position: sticky; top: 0; background: #0a0a0a; z-index: 100; }
+    .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.01em; color: #f0ede6; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #f0ede6; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #888; }
+    .nav-drawer { display: none; flex-direction: column; background: #0a0a0a; border-bottom: 1px solid #222; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #888; text-decoration: none; padding: 1rem 1.5rem; border-bottom: 1px solid #1a1a1a; }
+
+    /* HERO */
+    .hero { padding: 5rem 2.5rem 3.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; border-bottom: 1px solid #222; }
+    .hero-tag { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; color: #df6e8e; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .hero-name { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(4rem, 9vw, 8rem); line-height: 0.9; color: #f0ede6; margin-bottom: 1.5rem; }
+    .hero-name span { color: #df6e8e; }
+    .hero-bio { font-size: 1.05rem; line-height: 1.75; color: #999; max-width: 420px; font-weight: 300; }
+    .hero-bio strong { color: #f0ede6; font-weight: 400; }
+    .hero-right { display: flex; flex-direction: column; gap: 1.8rem; align-items: flex-end; padding-bottom: 0.5rem; }
+    .skill-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 0.5rem; text-align: right; }
+    .hero-scroll { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.2em; color: #444; text-transform: uppercase; }
+    .skills-list { display: flex; flex-direction: column; width: 100%; }
+    .skill-row { display: flex; justify-content: flex-end; align-items: baseline; gap: 0.8rem; padding: 0.55rem 0; border-bottom: 1px solid #1a1a1a; }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-name { font-size: 0.88rem; color: #ccc; font-weight: 300; text-align: right; }
+    .skill-name.pink { color: #df6e8e; }
+    .skill-sub { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #444; white-space: nowrap; }
+
+    /* WORK */
+    .section-header { display: flex; justify-content: space-between; align-items: center; padding: 2rem 2.5rem 1.5rem; border-bottom: 1px solid #222; }
+    .section-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.4rem; letter-spacing: 0.02em; }
+    .filter-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-btn { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid #333; border-radius: 100px; color: #666; background: none; cursor: pointer; transition: all 0.2s; }
+    .filter-btn.active, .filter-btn:hover { border-color: #df6e8e; color: #df6e8e; }
+
+    /* GRID */
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .project-card { border-right: 1px solid #222; border-bottom: 1px solid #222; position: relative; overflow: hidden; }
+    .project-card:nth-child(3n) { border-right: none; }
+    .project-card a { display: block; position: relative; text-decoration: none; }
+    .project-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; filter: grayscale(15%); transition: transform 0.4s ease, filter 0.4s ease; }
+    .project-card:hover .project-img { transform: scale(1.04); filter: grayscale(0%); }
+    .project-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.2rem 1.2rem; background: linear-gradient(to top, rgba(10,10,10,0.97) 0%, transparent 100%); }
+    .project-discipline { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #df6e8e; margin-bottom: 0.35rem; }
+    .project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(0.95rem, 2vw, 1.2rem); letter-spacing: 0.04em; color: #f0ede6; line-height: 1.15; }
+    .project-studio { font-size: 0.75rem; color: #555; margin-top: 0.2rem; }
+    .project-card.hidden { display: none; }
+
+    /* ABOUT */
+    .about-strip { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #222; }
+    .about-left { padding: 3rem 2.5rem; border-right: 1px solid #222; }
+    .about-right { padding: 3rem 2.5rem; display: flex; flex-direction: column; gap: 2rem; }
+    .about-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 1.2rem; }
+    .about-text { font-size: 1.05rem; line-height: 1.9; color: #999; font-weight: 300; margin-bottom: 0.8rem; }
+    .about-text strong { color: #f0ede6; font-weight: 400; }
+    .soft-label { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: #555; margin-bottom: 0.8rem; }
+    .pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pill { font-size: 0.78rem; padding: 0.3rem 0.85rem; border: 1px solid #333; border-radius: 100px; color: #aaa; cursor: default; user-select: none; }
+
+    /* FOOTER */
+    .footer { padding: 2.5rem 2.5rem; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid #222; }
+    .footer-prompt { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: #555; margin-bottom: 0.6rem; }
+    .footer-email { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.8rem; letter-spacing: 0.05em; color: #f0ede6; text-decoration: none; display: block; transition: color 0.2s; }
+    .footer-email span { color: #df6e8e; }
+    .footer-email:hover { color: #df6e8e; }
+    .footer-right { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: #444; text-align: right; line-height: 1.8; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { grid-template-columns: 1fr; padding: 2.5rem 1.5rem 2rem; gap: 2rem; }
+      .hero-right { align-items: flex-start; }
+      .skill-label { text-align: left; }
+      .skill-row { justify-content: space-between; }
+      .skill-name { text-align: left; }
+      .hero-scroll { display: none; }
+      .section-header { padding: 1.2rem 1.5rem; }
+      .filter-btn { font-size: 0.55rem; padding: 0.25rem 0.6rem; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-card:nth-child(3n) { border-right: 1px solid #222; }
+      .project-card:nth-child(2n) { border-right: none; }
+      .about-strip { grid-template-columns: 1fr; }
+      .about-left { border-right: none; border-bottom: 1px solid #222; padding: 2rem 1.5rem; }
+      .about-right { padding: 2rem 1.5rem; }
+      .footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem 1.5rem; }
+      .footer-right { text-align: left; }
+      .footer-email { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Kaling Zhang</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.pdf" target="_blank">Resume</a></li>
+      <li><a href="mailto:kalingzhang@gmail.com">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="document.getElementById('navDrawer').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="resume.pdf" target="_blank">Resume</a>
+    <a href="mailto:kalingzhang@gmail.com">Contact</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">/ Art Department · Film & Television · Toronto</div>
+      <h1 class="hero-name">Kaling<br><span>Zhang</span></h1>
+      <p class="hero-bio">I build the <strong>details that make fiction feel real</strong> — prop graphics, set dressing, and the spaces in between. My background in <strong>architecture and graphic design</strong> means I think in both image and space at the same time.</p>
+    </div>
+    <div class="hero-right">
+      <div style="width:100%">
+        <div class="skill-label">Skills</div>
+        <div class="skills-list">
+          <div class="skill-row"><span class="skill-sub">Prop & hero assets</span><span class="skill-name pink">On-Screen Graphics</span></div>
+          <div class="skill-row"><span class="skill-sub">Dressing & detail</span><span class="skill-name pink">Set Design</span></div>
+          <div class="skill-row"><span class="skill-sub">Visual development</span><span class="skill-name pink">Art Direction</span></div>
+          <div class="skill-row"><span class="skill-sub">Vectorworks</span><span class="skill-name">Technical Drafting</span></div>
+          <div class="skill-row"><span class="skill-sub">SketchUp · Enscape</span><span class="skill-name">3D Modeling</span></div>
+          <div class="skill-row"><span class="skill-sub">Adobe Suite</span><span class="skill-name">Motion Graphics</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll">↓ Selected Work</div>
+    </div>
+  </section>
+
+  <div class="section-header" id="work">
+    <div class="section-title">Selected Work</div>
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="graphic-design">Graphic Design</button>
+      <button class="filter-btn" data-filter="set-design">Set Design</button>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card" data-type="set-design">
+      <a href="we-were-liars.html">
+        <img class="project-img" src="https://cdn.myportfolio.com/42275079-8cfa-43bb-9fea-c21003d512c3/ad6c9cc6-06b0-47cc-8185-5a6d44bf0f1d_rwc_0x254x2000x2663x32.jpg?h=164cd678d8af83e7f6f9fbb7e427e621" alt="We Were Liars" />
+        <div class="project-overlay">
+          <div class="project-discipline">Set Design</div>
+          <div class="project-title">We Were Liars S1</div>
+          <div class="project-studio">Amazon · NBCUniversal · 2024</div>
+        </div>
+      </a>
+    </div>
+    <div class="project-card" data-type="graphic-design">
+      <a href="sullivans-crossing-s3.html">
+        <img class="project-img" src="https://cdn.myportfolio.com/42275079-8cfa-43bb-9fea-c21003d512c3/208cd597-75af-44b4-82a9-3023fa433994_rwc_0x0x2000x2663x32.jpg?h=5b0ef0e899fb74695543732aec134139" alt="Sullivan's Crossing S3" />
+        <div class="project-overlay">
+          <div class="project-discipline">Graphic Design</div>
+          <div class="project-title">Sullivan's Crossing S3</div>
+          <div class="project-studio">Bell Media · The CW · 2024</div>
+        </div>
+      </a>
+    </div>
+    <div class="project-card" data-type="graphic-design">
+      <a href="sharp-corner.html">
+        <img class="project-img" src="https://cdn.myportfolio.com/42275079-8cfa-43bb-9fea-c21003d512c3/be41012a-c973-4611-bc10-103d838dcdf0_rwc_0x109x1000x1331x32.jpg?h=ffde87e5b531396a5167231c104f4784" alt="Sharp Corner" />
+        <div class="project-overlay">
+          <div class="project-discipline">Graphic Design</div>
+          <div class="project-title">Sharp Corner</div>
+          <div class="project-studio">Shut Up & Colour Pictures · TIFF 2024</div>
+        </div>
+      </a>
+    </div>
+    <div class="project-card" data-type="graphic-design">
+      <a href="monicas-news.html">
+        <img class="project-img" src="https://cdn.myportfolio.com/42275079-8cfa-43bb-9fea-c21003d512c3/89c4f6e4-0db1-42a0-a5fd-bf9bbeca6eb3_rwc_0x163x3000x3995x32.jpg?h=a9af7fcf2ad133129f454fedf8b71bac" alt="Monica's News" />
+        <div class="project-overlay">
+          <div class="project-discipline">Graphic Design</div>
+          <div class="project-title">Monica's News</div>
+          <div class="project-studio">Picture Plant · AIFF 2024</div>
+        </div>
+      </a>
+    </div>
+    <div class="project-card" data-type="graphic-design">
+      <a href="sullivans-crossing-s4.html">
+        <img class="project-img" src="https://cdn.myportfolio.com/42275079-8cfa-43bb-9fea-c21003d512c3/6f1ba34f-7189-48b9-b3dc-a6b3a16ea2e9_rwc_0x62x768x1022x32.png?h=5df63c91421d1748d9ff575a7e3f3404" alt="Sullivan's Crossing S4" />
+        <div class="project-overlay">
+          <div class="project-discipline">Graphic Design</div>
+          <div class="project-title">Sullivan's Crossing S4</div>
+          <div class="project-studio">Bell Media · The CW · 2025</div>
+        </div>
+      </a>
+    </div>
+    <div class="project-card" data-type="set-design">
+      <a href="the-miseries.html">
+        <img class="project-img" src="https://cdn.myportfolio.com/42275079-8cfa-43bb-9fea-c21003d512c3/85740fb5-c62a-45d9-b60c-5d54ced56ee7_carw_3x4x32.jpeg?h=28163295081ae90daea4a8baf1053e98" alt="The Miseries" />
+        <div class="project-overlay">
+          <div class="project-discipline">Art Direction</div>
+          <div class="project-title">The Miseries</div>
+          <div class="project-studio">No Fear Films · Picture Plant · 2025</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="about-strip">
+    <div class="about-left">
+      <div class="about-eyebrow">About</div>
+      <p class="about-text">Kaling is a multi-disciplinary designer based in Toronto, working in film and television.</p>
+      <p class="about-text">She works across graphics, set design, and concept renderings — creating story-driven work with a thoughtful yet playful approach.</p>
+    </div>
+    <div class="about-right">
+      <div>
+        <div class="soft-label">Software</div>
+        <div class="pills">
+          <div class="pill">Illustrator</div>
+          <div class="pill">Photoshop</div>
+          <div class="pill">InDesign</div>
+          <div class="pill">After Effects</div>
+          <div class="pill">Vectorworks</div>
+          <div class="pill">SketchUp</div>
+          <div class="pill">Enscape</div>
+          <div class="pill">Proto.io</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <div class="footer-prompt">Let's work together</div>
+      <a class="footer-email" href="mailto:kalingzhang@gmail.com"><span>kalingzhang@gmail.com</span></a>
+    </div>
+    <div class="footer-right">Toronto, ON<br>Available for hire<br>Film & Television · Art Department</div>
+  </footer>
+
+  <script>
+    const btns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          card.classList.toggle('hidden', filter !== 'all' && card.dataset.type !== filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

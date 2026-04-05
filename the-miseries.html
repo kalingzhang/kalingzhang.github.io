@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaling Zhang — The Miseries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&family=Outfit:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; color: #f0ede6; overflow-x: hidden; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 1px solid #222; position: sticky; top: 0; background: #0a0a0a; z-index: 100; }
+    .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.01em; color: #f0ede6; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #f0ede6; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #888; }
+    .nav-drawer { display: none; flex-direction: column; background: #0a0a0a; border-bottom: 1px solid #222; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #888; text-decoration: none; padding: 1rem 1.5rem; border-bottom: 1px solid #1a1a1a; }
+    .back-bar { padding: 1.2rem 2.5rem; border-bottom: 1px solid #222; }
+    .back-link { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #555; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .back-link:hover { color: #df6e8e; }
+    .project-header { padding: 3rem 2.5rem 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; border-bottom: 1px solid #222; }
+    .project-discipline { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #df6e8e; margin-bottom: 0.8rem; }
+    .project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(2.5rem, 7vw, 6rem); line-height: 0.9; letter-spacing: 0.02em; color: #f0ede6; }
+    .project-credits { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+    .credit-row { display: flex; gap: 1rem; align-items: baseline; }
+    .credit-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: #444; }
+    .credit-value { font-size: 0.9rem; color: #888; font-weight: 300; }
+    .hero-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-bottom: 1px solid #222; }
+    .content { padding: 0 2.5rem 2.5rem; }
+    .section-label { margin-top: 2.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid #1e1e1e; font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
+    .block-full { margin-top: 1rem; }
+    .block-full img { width: 100%; display: block; }
+    .block-two { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .block-two img { width: 100%; display: block; }
+    .project-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #222; margin-top: 3rem; }
+    .proj-nav-item { padding: 2rem 2.5rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
+    .proj-nav-item:hover { background: #111; }
+    .proj-nav-item.next { border-left: 1px solid #222; align-items: flex-end; }
+    .nav-direction { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
+    .nav-project-discipline { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: #df6e8e; }
+    .nav-project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.4rem; letter-spacing: 0.04em; color: #f0ede6; line-height: 1; }
+    @media (max-width: 768px) {
+      .nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .back-bar { padding: 1rem 1.5rem; }
+      .project-header { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1.5rem; }
+      .project-credits { align-items: flex-start; }
+      .content { padding: 0 1.5rem 2rem; }
+      .block-two { grid-template-columns: 1fr; }
+      .project-nav { grid-template-columns: 1fr; }
+      .proj-nav-item.next { border-left: none; border-top: 1px solid #222; align-items: flex-start; }
+      .proj-nav-item { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Kaling Zhang</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.pdf" target="_blank">Resume</a></li>
+      <li><a href="mailto:kalingzhang@gmail.com">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="document.getElementById('navDrawer').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="resume.pdf" target="_blank">Resume</a>
+    <a href="mailto:kalingzhang@gmail.com">Contact</a>
+  </div>
+  <div class="back-bar"><a class="back-link" href="index.html">← Back to Work</a></div>
+  <div class="project-header">
+    <div>
+      <div class="project-discipline">Art Direction</div>
+      <div class="project-title">The Miseries</div>
+    </div>
+    <div class="project-credits">
+      <div class="credit-row"><span class="credit-label">Studio</span><span class="credit-value">No Fear Films · Picture Plant</span></div>
+      <div class="credit-row"><span class="credit-label">Role</span><span class="credit-value">Art Direction</span></div>
+      <div class="credit-row"><span class="credit-label">PD</span><span class="credit-value">Stephen Osler</span></div>
+      <div class="credit-row"><span class="credit-label">Year</span><span class="credit-value">2025</span></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+    HERO IMAGE
+    Replace the src below with your best full-width image for this project
+  ============================================================ -->
+  <img class="hero-img" src="REPLACE_WITH_HERO_IMAGE_URL" alt="The Miseries hero" />
+
+  <div class="content">
+    <!-- ============================================================
+      ADD YOUR IMAGES BELOW
+      Use .block-full for a single full-width image
+      Use .block-two for two side-by-side images
+      Copy and paste as many blocks as you need.
+
+      EXAMPLE — single image:
+      <div class="section-label">Location name or description</div>
+      <div class="block-full">
+        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
+      </div>
+
+      EXAMPLE — two images side by side:
+      <div class="section-label">Location name or description</div>
+      <div class="block-two">
+        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
+        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
+      </div>
+    ============================================================ -->
+
+    <div class="section-label">Add your first section label here</div>
+    <div class="block-full">
+      <img src="REPLACE_WITH_IMAGE_URL" alt="image description" />
+    </div>
+
+  </div>
+
+  <div class="project-nav">
+    <a class="proj-nav-item prev" href="sullivans-crossing-s4.html">
+      <span class="nav-direction">← Previous</span>
+      <span class="nav-project-discipline">Graphic Design</span>
+      <span class="nav-project-title">Sullivan's Crossing S4</span>
+    </a>
+    <a class="proj-nav-item next" href="we-were-liars.html">
+      <span class="nav-direction">Next →</span>
+      <span class="nav-project-discipline">Set Design</span>
+      <span class="nav-project-title">We Were Liars S1</span>
+    </a>
+  </div>
+
+  <script>
+    document.getElementById && document.querySelectorAll && true;
+  </script>
+</body>
+</html>
