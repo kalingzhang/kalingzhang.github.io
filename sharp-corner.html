@@ -6,7 +6,7 @@
   <title>Kaling Zhang — Sharp Corner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&family=Outfit:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; color: #f0ede6; overflow-x: hidden; }
@@ -25,25 +25,27 @@
     .back-link:hover { color: #df6e8e; }
     .project-header { padding: 3rem 2.5rem 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; border-bottom: 1px solid #222; }
     .project-discipline { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #df6e8e; margin-bottom: 0.8rem; }
-    .project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(2.5rem, 7vw, 6rem); line-height: 0.9; letter-spacing: 0.02em; color: #f0ede6; }
+    .project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(2.5rem, 7vw, 5rem); line-height: 0.9; color: #f0ede6; }
     .project-credits { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
     .credit-row { display: flex; gap: 1rem; align-items: baseline; }
     .credit-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: #444; }
     .credit-value { font-size: 0.9rem; color: #888; font-weight: 300; }
     .hero-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-bottom: 1px solid #222; }
-    .content { padding: 0 2.5rem 2.5rem; }
-    .section-label { margin-top: 2.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid #1e1e1e; font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
-    .block-full { margin-top: 1rem; }
+    .content { padding: 0 3rem 4rem; }
+    .section-label { margin-top: 3rem; padding-bottom: 0.8rem; border-bottom: 1px solid #1e1e1e; font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
+    .block-full { margin-top: 1.5rem; }
     .block-full img { width: 100%; display: block; }
-    .block-two { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .block-two { margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .block-two img { width: 100%; display: block; }
-    .project-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #222; margin-top: 3rem; }
+    .block-three { margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+    .block-three img { width: 100%; display: block; }
+    .project-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #222; margin-top: 4rem; }
     .proj-nav-item { padding: 2rem 2.5rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
     .proj-nav-item:hover { background: #111; }
     .proj-nav-item.next { border-left: 1px solid #222; align-items: flex-end; }
     .nav-direction { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
     .nav-project-discipline { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: #df6e8e; }
-    .nav-project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.4rem; letter-spacing: 0.04em; color: #f0ede6; line-height: 1; }
+    .nav-project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.4rem; color: #f0ede6; line-height: 1; }
     @media (max-width: 768px) {
       .nav { padding: 1.2rem 1.5rem; }
       .nav-links { display: none; }
@@ -52,7 +54,7 @@
       .project-header { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1.5rem; }
       .project-credits { align-items: flex-start; }
       .content { padding: 0 1.5rem 2rem; }
-      .block-two { grid-template-columns: 1fr; }
+      .block-two, .block-three { grid-template-columns: 1fr; }
       .project-nav { grid-template-columns: 1fr; }
       .proj-nav-item.next { border-left: none; border-top: 1px solid #222; align-items: flex-start; }
       .proj-nav-item { padding: 1.5rem; }
@@ -66,7 +68,7 @@
       <li><a href="index.html#work">Work</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="https://drive.google.com/file/d/1muALEpiTEItk9lXHX_5EvTRDCtyfagsP/view?usp=sharing" target="_blank">Resume</a></li>
-      <li><a href="mailto:kalingzhang@gmail.com">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <button class="nav-hamburger" onclick="document.getElementById('navDrawer').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -76,9 +78,11 @@
     <a href="index.html#work">Work</a>
     <a href="about.html">About</a>
     <a href="https://drive.google.com/file/d/1muALEpiTEItk9lXHX_5EvTRDCtyfagsP/view?usp=sharing" target="_blank">Resume</a>
-    <a href="mailto:kalingzhang@gmail.com">Contact</a>
+    <a href="contact.html">Contact</a>
   </div>
+
   <div class="back-bar"><a class="back-link" href="index.html">← Back to Work</a></div>
+
   <div class="project-header">
     <div>
       <div class="project-discipline">Graphic Design</div>
@@ -88,40 +92,114 @@
       <div class="credit-row"><span class="credit-label">Studio</span><span class="credit-value">Shut Up & Colour Pictures</span></div>
       <div class="credit-row"><span class="credit-label">Role</span><span class="credit-value">Graphic Design</span></div>
       <div class="credit-row"><span class="credit-label">PD</span><span class="credit-value">Jennifer Stewart</span></div>
-      <div class="credit-row"><span class="credit-label">Year</span><span class="credit-value">2024</span></div>
+      <div class="credit-row"><span class="credit-label">Year</span><span class="credit-value">TIFF 2024</span></div>
     </div>
   </div>
 
-  <!-- ============================================================
-    HERO IMAGE
-    Replace the src below with your best full-width image for this project
-  ============================================================ -->
-  <img class="hero-img" src="REPLACE_WITH_HERO_IMAGE_URL" alt="Sharp Corner hero" />
+  <!-- Hero — 00 -->
+  <img class="hero-img" src="sharp-corner/sharpcorner-00.jpg" alt="Sharp Corner hero" />
 
   <div class="content">
-    <!-- ============================================================
-      ADD YOUR IMAGES BELOW
-      Use .block-full for a single full-width image
-      Use .block-two for two side-by-side images
-      Copy and paste as many blocks as you need.
 
-      EXAMPLE — single image:
-      <div class="section-label">Location name or description</div>
-      <div class="block-full">
-        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
-      </div>
-
-      EXAMPLE — two images side by side:
-      <div class="section-label">Location name or description</div>
-      <div class="block-two">
-        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
-        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
-      </div>
-    ============================================================ -->
-
-    <div class="section-label">Add your first section label here</div>
+    <!-- Exterior House Rendering — 01 full width -->
+    <div class="section-label">Exterior House Rendering</div>
     <div class="block-full">
-      <img src="REPLACE_WITH_IMAGE_URL" alt="image description" />
+      <img src="sharp-corner/sharpcorner-01.jpg" alt="Exterior House Rendering" />
+    </div>
+
+    <!-- Built Set House Kitchen — 02 + 03 side by side -->
+    <div class="section-label">Built Set — House Kitchen</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-02.jpg" alt="House Kitchen" />
+      <img src="sharp-corner/sharpcorner-03.jpg" alt="House Kitchen" />
+    </div>
+
+    <!-- House Kitchen Elevation — 04 full width -->
+    <div class="section-label">House Kitchen Elevation</div>
+    <div class="block-full">
+      <img src="sharp-corner/sharpcorner-04.jpg" alt="House Kitchen Elevation" />
+    </div>
+
+    <!-- House Kitchen Plan + Elevation — 05 + 06 side by side -->
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-05.jpg" alt="House Kitchen Plan" />
+      <img src="sharp-corner/sharpcorner-06.jpg" alt="House Kitchen Elevation" />
+    </div>
+
+    <!-- News Playback on iPad — 07 + 08 side by side -->
+    <div class="section-label">News Playback on iPad</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-07.jpg" alt="News Playback on iPad" />
+      <img src="sharp-corner/sharpcorner-08.jpg" alt="News Playback on iPad" />
+    </div>
+
+    <!-- Waterfront Carnival — 09 + 10 side by side -->
+    <div class="section-label">Waterfront Carnival</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-09.jpg" alt="Waterfront Carnival" />
+      <img src="sharp-corner/sharpcorner-10.jpg" alt="Waterfront Carnival" />
+    </div>
+
+    <!-- Waterfront Carnival Signage — 11 + 12 side by side -->
+    <div class="section-label">Waterfront Carnival Signage</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-11.jpg" alt="Waterfront Carnival Signage" />
+      <img src="sharp-corner/sharpcorner-12.jpg" alt="Waterfront Carnival Signage" />
+    </div>
+
+    <!-- Josh's Credit Card — 13 full width -->
+    <div class="section-label">Josh's Credit Card</div>
+    <div class="block-full">
+      <img src="sharp-corner/sharpcorner-13.jpg" alt="Josh's Credit Card" />
+    </div>
+
+    <!-- Doctor's Office + Diplomas — 14 + 15 side by side -->
+    <div class="section-label">Doctor's Office</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-14.jpg" alt="Doctor's Office" />
+      <img src="sharp-corner/sharpcorner-15.jpg" alt="Doctor's Diplomas" />
+    </div>
+
+    <!-- Three Little Pigs Books — 16 + 17 side by side -->
+    <div class="section-label">Three Little Pigs Books</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-16.jpg" alt="Three Little Pigs Books" />
+      <img src="sharp-corner/sharpcorner-17.jpg" alt="Three Little Pigs Books" />
+    </div>
+
+    <!-- 18 + 19 side by side -->
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-18.jpg" alt="" />
+      <img src="sharp-corner/sharpcorner-19.jpg" alt="" />
+    </div>
+
+    <!-- Illustration by Sadie Buxton — 20 + 21 + 22 three columns -->
+    <div class="section-label">Illustration by Sadie Buxton</div>
+    <div class="block-three">
+      <img src="sharp-corner/sharpcorner-20.jpg" alt="Illustration by Sadie Buxton" />
+      <img src="sharp-corner/sharpcorner-21.jpg" alt="Illustration by Sadie Buxton" />
+      <img src="sharp-corner/sharpcorner-22.jpg" alt="Illustration by Sadie Buxton" />
+    </div>
+
+    <!-- Max's Montessori Logo — 23 + 24 side by side -->
+    <div class="section-label">Max's Montessori Logo</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-23.jpg" alt="Max's Montessori Logo" />
+      <img src="sharp-corner/sharpcorner-24.jpg" alt="Max's Montessori Logo" />
+    </div>
+
+    <!-- Harbour City News Logo — 25 + 26 side by side -->
+    <div class="section-label">Harbour City News Logo</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-25.jpg" alt="Harbour City News Logo" />
+      <img src="sharp-corner/sharpcorner-26.jpg" alt="Harbour City News Logo" />
+    </div>
+
+    <!-- Grocery Store — 27 + 28 side by side -->
+    <div class="section-label">Grocery Store</div>
+    <div class="block-two">
+      <img src="sharp-corner/sharpcorner-27.jpg" alt="Grocery Store" />
+      <img src="sharp-corner/sharpcorner-28.jpg" alt="Grocery Store" />
     </div>
 
   </div>
@@ -139,8 +217,5 @@
     </a>
   </div>
 
-  <script>
-    document.getElementById && document.querySelectorAll && true;
-  </script>
 </body>
 </html>
