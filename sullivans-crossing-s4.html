@@ -6,7 +6,7 @@
   <title>Kaling Zhang — Sullivan's Crossing S4</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&family=Outfit:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; color: #f0ede6; overflow-x: hidden; }
@@ -25,25 +25,25 @@
     .back-link:hover { color: #df6e8e; }
     .project-header { padding: 3rem 2.5rem 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; border-bottom: 1px solid #222; }
     .project-discipline { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #df6e8e; margin-bottom: 0.8rem; }
-    .project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(2.5rem, 7vw, 6rem); line-height: 0.9; letter-spacing: 0.02em; color: #f0ede6; }
+    .project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(2.5rem, 7vw, 5rem); line-height: 0.9; color: #f0ede6; }
     .project-credits { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
     .credit-row { display: flex; gap: 1rem; align-items: baseline; }
     .credit-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: #444; }
     .credit-value { font-size: 0.9rem; color: #888; font-weight: 300; }
     .hero-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-bottom: 1px solid #222; }
-    .content { padding: 0 2.5rem 2.5rem; }
-    .section-label { margin-top: 2.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid #1e1e1e; font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
-    .block-full { margin-top: 1rem; }
+    .content { padding: 0 3rem 4rem; }
+    .section-label { margin-top: 3rem; padding-bottom: 0.8rem; border-bottom: 1px solid #1e1e1e; font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
+    .block-full { margin-top: 1.5rem; }
     .block-full img { width: 100%; display: block; }
-    .block-two { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .block-two img { width: 100%; display: block; }
-    .project-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #222; margin-top: 3rem; }
+    .block-two { margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+    .block-two img { width: 100%; height: auto; display: block; }
+    .project-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #222; margin-top: 4rem; }
     .proj-nav-item { padding: 2rem 2.5rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
     .proj-nav-item:hover { background: #111; }
     .proj-nav-item.next { border-left: 1px solid #222; align-items: flex-end; }
     .nav-direction { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
     .nav-project-discipline { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: #df6e8e; }
-    .nav-project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.4rem; letter-spacing: 0.04em; color: #f0ede6; line-height: 1; }
+    .nav-project-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.4rem; color: #f0ede6; line-height: 1; }
     @media (max-width: 768px) {
       .nav { padding: 1.2rem 1.5rem; }
       .nav-links { display: none; }
@@ -66,7 +66,7 @@
       <li><a href="index.html#work">Work</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="https://drive.google.com/file/d/1muALEpiTEItk9lXHX_5EvTRDCtyfagsP/view?usp=sharing" target="_blank">Resume</a></li>
-      <li><a href="mailto:kalingzhang@gmail.com">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <button class="nav-hamburger" onclick="document.getElementById('navDrawer').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -76,9 +76,11 @@
     <a href="index.html#work">Work</a>
     <a href="about.html">About</a>
     <a href="https://drive.google.com/file/d/1muALEpiTEItk9lXHX_5EvTRDCtyfagsP/view?usp=sharing" target="_blank">Resume</a>
-    <a href="mailto:kalingzhang@gmail.com">Contact</a>
+    <a href="contact.html">Contact</a>
   </div>
+
   <div class="back-bar"><a class="back-link" href="index.html">← Back to Work</a></div>
+
   <div class="project-header">
     <div>
       <div class="project-discipline">Graphic Design</div>
@@ -92,36 +94,65 @@
     </div>
   </div>
 
-  <!-- ============================================================
-    HERO IMAGE
-    Replace the src below with your best full-width image for this project
-  ============================================================ -->
-  <img class="hero-img" src="REPLACE_WITH_HERO_IMAGE_URL" alt="Sullivan's Crossing S4 hero" />
+  <!-- Hero — 01 Timberlake Gazette -->
+  <img class="hero-img" src="sullivans-crossing-s4/sullivanscrossing4-01.jpg" alt="Sullivan's Crossing S4 hero" />
 
   <div class="content">
-    <!-- ============================================================
-      ADD YOUR IMAGES BELOW
-      Use .block-full for a single full-width image
-      Use .block-two for two side-by-side images
-      Copy and paste as many blocks as you need.
 
-      EXAMPLE — single image:
-      <div class="section-label">Location name or description</div>
-      <div class="block-full">
-        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
-      </div>
+    <!-- 02 + 03 side by side -->
+    <div class="block-two">
+      <img src="sullivans-crossing-s4/sullivanscrossing4-02.jpg" alt="" />
+      <img src="sullivans-crossing-s4/sullivanscrossing4-03.jpg" alt="" />
+    </div>
 
-      EXAMPLE — two images side by side:
-      <div class="section-label">Location name or description</div>
-      <div class="block-two">
-        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
-        <img src="YOUR_IMAGE_URL_HERE" alt="description" />
-      </div>
-    ============================================================ -->
+    <!-- Carlson's Clinic — 04 + Concept Render 05 side by side -->
+    <div class="section-label">Carlson's Clinic</div>
+    <div class="block-two">
+      <img src="sullivans-crossing-s4/sullivanscrossing4-04.jpg" alt="Carlson's Clinic" />
+      <img src="sullivans-crossing-s4/sullivanscrossing4-05.jpg" alt="Carlson's Clinic — Concept Render" />
+    </div>
 
-    <div class="section-label">Add your first section label here</div>
+    <!-- Carlson's Clinic Reception — 06 + Concept Render 07 side by side -->
+    <div class="section-label">Carlson's Clinic Reception</div>
+    <div class="block-two">
+      <img src="sullivans-crossing-s4/sullivanscrossing4-06.jpg" alt="Carlson's Clinic Reception" />
+      <img src="sullivans-crossing-s4/sullivanscrossing4-07.jpg" alt="Carlson's Clinic Reception — Concept Render" />
+    </div>
+
+    <!-- Reception Desk Pattern — 08 full width -->
+    <div class="section-label">Reception Desk — Pattern</div>
     <div class="block-full">
-      <img src="REPLACE_WITH_IMAGE_URL" alt="image description" />
+      <img src="sullivans-crossing-s4/sullivanscrossing4-08.jpg" alt="Reception Desk Pattern" />
+    </div>
+
+    <!-- Spanish Hotel — 09 + 10 side by side -->
+    <div class="section-label">Spanish Hotel</div>
+    <div class="block-two">
+      <img src="sullivans-crossing-s4/sullivanscrossing4-09.jpg" alt="Spanish Hotel" />
+      <img src="sullivans-crossing-s4/sullivanscrossing4-10.jpg" alt="Spanish Hotel" />
+    </div>
+
+    <!-- Kaling's Chinese Food — 11 full width -->
+    <div class="section-label">Kaling's Chinese Food</div>
+    <div class="block-full">
+      <img src="sullivans-crossing-s4/sullivanscrossing4-11.jpg" alt="Kaling's Chinese Food" />
+    </div>
+
+    <!-- 12 full width -->
+    <div class="block-full">
+      <img src="sullivans-crossing-s4/sullivanscrossing4-12.jpg" alt="" />
+    </div>
+
+    <!-- Photography Magazine — 13 full width -->
+    <div class="section-label">Photography Magazine</div>
+    <div class="block-full">
+      <img src="sullivans-crossing-s4/sullivanscrossing4-13.jpg" alt="Photography Magazine" />
+    </div>
+
+    <!-- 14 + 15 side by side -->
+    <div class="block-two">
+      <img src="sullivans-crossing-s4/sullivanscrossing4-14.jpg" alt="" />
+      <img src="sullivans-crossing-s4/sullivanscrossing4-15.jpg" alt="" />
     </div>
 
   </div>
@@ -139,8 +170,5 @@
     </a>
   </div>
 
-  <script>
-    document.getElementById && document.querySelectorAll && true;
-  </script>
 </body>
 </html>
